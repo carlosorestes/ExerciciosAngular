@@ -20,3 +20,31 @@
 <ul *ngFor="let nomeFiltro of nomesFiltro">
   <li>{{nomeFiltro}}</li>
 </ul>
+
+<p>Salario total: {{getValorTotal()}}</p>
+
+
+<input #parametroid placeholder="digite um id"/>
+<button (click)="retorno = buscarId(parametroid.value)">Buscar id</button>
+<p *ngIf="retorno != undefined">{{retorno.id}} - {{retorno.nome}}</p>
+
+<br>
+<input #percentual placeholder="digite o percentual"/>
+<button (click)="aumentarSalario(percentual.value)">Aumentar Salario</button>
+
+<p>{{verificaSalario(500)?'Todo mundo ganha mais que 500':'nem todo mundo ganha mais que 500'}}</p>
+
+<br>
+<input #criterio placeholder="digite um criterio de busca"
+(keyup)="resposta = buscaCampos(criterio.value)"/>
+
+<ul *ngFor="let r of resposta">
+  <li>{{r.id}} - {{r.nome}} - {{r.salario}}</li>  
+</ul>
+
+
+<input placeholder="digite um nome" #campo>
+<button (click)="enviar(campo.value)">Enviar</button>
+<ul *ngFor="let r of nomes">
+  <li>{{r}}</li>  
+</ul>
